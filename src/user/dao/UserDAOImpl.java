@@ -21,7 +21,7 @@ public class UserDAOImpl implements UserDAO {
         try {
             conn = DatabaseConnection.getConnection();
             stmt = conn.prepareStatement("INSERT INTO user_tbl (user_usertype_id, user_person_id, user_name, user_password) VALUES (?, ?, ?, ?)");
-            stmt.setInt(1, 1);
+            stmt.setInt(1, user.getUserType());
             stmt.setInt(2, person_generated_id);
             stmt.setString(3, user.getAccount().getUsername());
             stmt.setString(4, user.getAccount().getPassword());
